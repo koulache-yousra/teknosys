@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="120" viewBox="0 0 220 120">
+  <rect width="220" height="120" rx="16" fill="#ffffff"/>
+  <text x="110" y="70" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="40" font-weight="600" fill="#1a1a1a">
+    Angekis
+  </text>
+  <circle cx="155" cy="50" r="4" fill="#1a1a1a"/>
+</svg>
+

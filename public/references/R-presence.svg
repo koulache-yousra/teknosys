@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#22d3ee" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="600" fill="url(#bg)" rx="32" />
+  <circle cx="600" cy="220" r="260" fill="url(#glow)" />
+  <path
+    d="M180 180c60-80 180-140 320-140 140 0 260 60 320 140-60 80-180 140-320 140-140 0-260-60-320-140z"
+    fill="#1f2937"
+    stroke="#38bdf8"
+    stroke-width="4"
+    opacity="0.4"
+  />
+  <g fill="#f472b6">
+    <circle cx="380" cy="200" r="10" />
+    <circle cx="520" cy="230" r="10" />
+    <circle cx="660" cy="180" r="10" />
+    <circle cx="740" cy="260" r="10" />
+    <circle cx="460" cy="320" r="10" />
+  </g>
+  <g fill="#ffffff" opacity="0.8" font-family="'Segoe UI', Arial, sans-serif" font-size="18">
+    <text x="370" y="190">Algérie</text>
+    <text x="510" y="220">EAU</text>
+    <text x="650" y="170">Qatar</text>
+    <text x="730" y="250">Turquie</text>
+    <text x="450" y="310">Arabie Saoudite</text>
+  </g>
+</svg>
+

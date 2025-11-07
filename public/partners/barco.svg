@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="120" viewBox="0 0 220 120">
+  <rect width="220" height="120" rx="16" fill="#ffffff"/>
+  <rect x="20" y="30" width="180" height="60" rx="12" fill="#d91421"/>
+  <text x="110" y="70" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">BARCO</text>
+</svg>
+

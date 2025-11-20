@@ -17,7 +17,11 @@ export default function Footer() {
               {[Facebook, Twitter, Youtube, Linkedin].map((Icon, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={
+                    Icon === Linkedin 
+                      ? "https://www.linkedin.com/company/teknosys-group/" 
+                      : "#"
+                  }
                   className="p-2 rounded-lg bg-white/10 text-white hover:bg-accent/20 transition-colors duration-300"
                 >
                   <Icon className="w-4 h-4" />

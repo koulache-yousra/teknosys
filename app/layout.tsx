@@ -8,8 +8,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'TeknoSys',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  description: 'Votre partenaire IT pour un environnement plus sécurisé ',
+  
   icons: {
     icon: [
       {

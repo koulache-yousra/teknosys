@@ -18,37 +18,12 @@ export default function ServicesPage() {
       <Header isDark={isDark} setIsDark={setIsDark} />
 
       {/* Hero */}
-      <section className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-secondary to-background">
+      <section className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-black tracking-tight">Solutions & Services</h1>
           <p className="mt-4 text-foreground/70 max-w-3xl mx-auto">
             Chez Teknosys Group, nos services sont structurés en trois pôles complémentaires.
           </p>
-        </div>
-      </section>
-
-      {/* Le marché IT 2024 */}
-      <section id="marche" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-10">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">Le marché IT en 2024</h2>
-            <p className="text-foreground/70 text-lg">
-              Des chiffres qui illustrent l'importance croissante de la transformation digitale
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[{n:"8.2%",t:"Croissance du marché IT en 2024"},{n:"94%",t:"Entreprises adoptant le cloud"},{n:"+12%",t:"Budget cybersécurité"},{n:"78%",t:"Transformation digitale"}].map((kpi, i) => (
-              <div
-                key={i}
-                className="glassmorphism rounded-2xl p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.25)] animate-in fade-in slide-in-from-bottom-2"
-              >
-                <div className="text-4xl md:text-5xl font-black text-accent">{kpi.n}</div>
-                <div className="mt-3 font-semibold">{kpi.t}</div>
-                <div className="mt-2 text-xs text-foreground/60">Indicateurs de tendance</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -72,16 +47,15 @@ export default function ServicesPage() {
       <section id="pole1" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Pôle 1</span>
+            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Services & Integration</span>
             <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Services & Integration</h3>
-            <p className="mt-3 text-foreground/70">Déploiement d'infrastructures IT de bout en bout.</p>
+            
             <ul className="mt-6 space-y-3">
               {[
                 "Déploiement d'infrastructures IT",
-                "Solutions réseau : switching, Wi‑Fi, câblage structuré",
-                "Intégration cloud : migration, data center, services managés",
-                "VoIP & UC : Zoom, Teams",
-                "Vidéosurveillance & contrôle d'accès",
+                "Solutions réseau, Wi-Fi, switching, câblage",
+                "Intégration cloud, data center, VoIP",
+                "Vidéosurveillance, contrôle d'accès",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent mt-0.5" />
@@ -89,9 +63,16 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
+            <br />
+            <button
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
+              >
+               Lire Plus
+              </button>
           </div>
           <div className="group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
-            <img src="/services/S-pole1.svg" alt="Infrastructure" className="w-full h-full object-cover" />
+            <img src="/services/service-integration.jpg" alt="Infrastructure" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -100,18 +81,17 @@ export default function ServicesPage() {
       <section id="pole2" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-accent/5 dark:bg-accent/10/10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1 group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
-            <img src="/services/S-pole2.svg" alt="Distribution" className="w-full h-full object-cover" />
+            <img src="/services/distribution.jpg" alt="Distribution" className="w-full h-full object-cover" />
           </div>
           <div className="order-1 md:order-2">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Pôle 2</span>
+            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Distribution</span>
             <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Distribution</h3>
-            <p className="mt-3 text-foreground/70">Fourniture d'équipements IT avec logistique fiable.</p>
+            
             <ul className="mt-6 space-y-3">
               {[
-                "Équipements IT, cybersécurité, vidéosurveillance",
-                "Stock local et livraison projet",
-                "Réseau de partenaires stratégiques",
-                "Produits certifiés : Hikvision, Fortinet, Dahua, Aruba, Zoom",
+                "Fourniture d'équipements IT, sécurité et vidéosurveillance",
+                "Stock local ou livraison rapide via nos partenaires",
+                "Marques : Hikvision, Fortinet, Dahua, Aruba, Zoom",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Network className="w-5 h-5 text-accent mt-0.5" />
@@ -119,6 +99,13 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
+            <br />
+            <button
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
+              >
+               Lire Plus
+              </button>
           </div>
         </div>
       </section>
@@ -127,16 +114,19 @@ export default function ServicesPage() {
       <section id="pole3" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Pôle 3</span>
+            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Consultancy</span>
             <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Consultancy</h3>
             <p className="mt-3 text-foreground/70">Conseil opérationnel et stratégique pour vos enjeux IT complexes.</p>
             <ul className="mt-6 space-y-3">
               {[
                 "Audit IT & cybersécurité",
-                "Transformation digitale",
+                "Accompagnement à la transformation digitale",
                 "Stratégie cloud & architecture Zero Trust",
-                "Intégration & support de solutions SAP",
-                "Délégation de ressources (ingénieurs, PM, consultants)",
+                "Solutions SAP (déploiement, intégration, support)",
+                "Solutions Mobile Payment (intégration, sécurité, conformité)",
+                "Conformité & mise à niveau technologique",
+                "Délégation de ressources IT (ingénieurs, chefs de projet, consultants)",
+
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-accent mt-0.5" />
@@ -144,9 +134,16 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
+            <br />
+            <button
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
+              >
+               Lire Plus
+              </button>
           </div>
           <div className="group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
-            <img src="/services/S-pole3.svg" alt="Consulting" className="w-full h-full object-cover" />
+            <img src="/services/consultancy.jpg" alt="Consulting" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -174,10 +171,120 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
+            <br />
+            <button
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
+              >
+               Lire Plus
+              </button>
           </div>
           <div className="rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]">
-            <img src="/services/S-security.svg" alt="Security" className="w-full h-full object-cover" />
+            <img src="/services/cybersecurity.jpg" alt="Security" className="w-full h-full object-cover" />
           </div>
+        </div>
+      </section>
+
+      {/* Formulaire de demande de devis */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100 dark:border-gray-800">
+          <div className="space-y-2 text-center mb-10">
+            <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Demander un devis</h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé.
+            </p>
+          </div>
+          
+          <form className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom complet <span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
+                  placeholder="Votre nom complet"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Société</label>
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
+                  placeholder="Nom de votre entreprise"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email <span className="text-red-500">*</span></label>
+                <input
+                  type="email"
+                  className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
+                  placeholder="votre@email.com"
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Téléphone</label>
+                <input
+                  type="tel"
+                  className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
+                  placeholder="+213 XX XX XX XX XX"
+                />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Service concerné <span className="text-red-500">*</span></label>
+              <select
+                className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
+                required
+              >
+                <option value="">Sélectionnez un service</option>
+                <option value="integration">Services & Integration</option>
+                <option value="distribution">Distribution</option>
+                <option value="consultancy">Consulting</option>
+                <option value="security">Cybersécurité</option>
+              </select>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Détails de votre demande <span className="text-red-500">*</span></label>
+              <textarea
+                rows={5}
+                className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none min-h-[120px] resize-none"
+                placeholder="Décrivez votre projet ou votre besoin en détail..."
+                required
+              ></textarea>
+            </div>
+            
+            <div className="flex items-start">
+              <div className="flex items-center h-5">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  className="h-4 w-4 rounded border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-blue-600 focus:ring-blue-500 focus:ring-offset-0"
+                  required
+                />
+              </div>
+              <div className="ml-3 text-sm">
+                <label htmlFor="privacy" className="font-medium text-gray-700 dark:text-gray-300">
+                  J'accepte la <a href="/privacy" className="text-blue-600 hover:underline dark:text-blue-400">politique de confidentialité</a> <span className="text-red-500">*</span>
+                </label>
+              </div>
+            </div>
+            
+            
+              <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 font-semibold text-white shadow-lg shadow-rose-400/30 transition-all hover:-translate-y-0.5"
+            >
+              Envoyer la Demande
+              
+            </button>
+          </form>
         </div>
       </section>
 

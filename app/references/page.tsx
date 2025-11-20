@@ -5,7 +5,6 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Landmark, Building2, Factory, RadioTower, MapPin } from "lucide-react"
-import { partners } from "@/data/partners"
 
 export default function ReferencesPage() {
   const [isDark, setIsDark] = useState(true)
@@ -20,7 +19,7 @@ export default function ReferencesPage() {
       <Header isDark={isDark} setIsDark={setIsDark} />
 
       {/* Hero */}
-      <section id="hero" className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-secondary to-background">
+      <section id="hero" className="pt-28 md:pt-36 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-black">Références & Partenaires</h1>
           <p className="mt-4 text-foreground/70 max-w-3xl mx-auto">
@@ -100,7 +99,7 @@ export default function ReferencesPage() {
           </div>
 
           <div className="w-full rounded-2xl overflow-hidden border border-white/20">
-            <img src="/references/R-presence.svg" alt="Carte de présence internationale" className="w-full h-full object-cover" />
+            <img src="/references/presence.jpg" alt="Carte de présence internationale" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -158,89 +157,6 @@ export default function ReferencesPage() {
         </div>
       </section>
 
-      {/* Partenaires */}
-      <section id="partenaires" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-10">
-          <div className="text-center space-y-3">
-            <h2 className="text-4xl md:text-5xl font-bold">Nos Partenaires Technologiques</h2>
-            <p className="text-foreground/70">Des leaders du marché pour des solutions fiables et innovantes.</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partners.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-3xl border border-white/10 dark:border-white/8 bg-background p-6 flex flex-col items-center justify-center gap-4 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(217,70,239,0.25)]"
-              >
-                <img src={partner.logo} alt={partner.name} className="max-h-16 w-auto opacity-80 group-hover:opacity-100 transition-opacity" />
-                <div className="text-center space-y-1">
-                  <p className="text-sm font-semibold text-foreground">{partner.name}</p>
-                  <p className="text-xs text-foreground/60">{partner.description}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to collaborate */}
-      <section id="contact-form" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto glassmorphism rounded-3xl p-10 md:p-14 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Vous êtes un partenaire potentiel ?</h2>
-          <p className="mt-3 text-foreground/70">Nous recherchons des partenaires et distributeurs stratégiques.</p>
-          <div className="mt-6">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="px-8 py-3 bg-gradient-to-r from-fuchsia-400 to-rose-400 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-400/40">
-                  Remplir le formulaire
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-xl">
-                <DialogHeader>
-                  <DialogTitle>Proposer une collaboration</DialogTitle>
-                </DialogHeader>
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Nom</label>
-                      <input className="w-full rounded-md border bg-background px-3 py-2" placeholder="Votre nom" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Société</label>
-                      <input className="w-full rounded-md border bg-background px-3 py-2" placeholder="Nom de société" />
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Email</label>
-                      <input type="email" className="w-full rounded-md border bg-background px-3 py-2" placeholder="email@domaine.com" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Téléphone</label>
-                      <input className="w-full rounded-md border bg-background px-3 py-2" placeholder="+213 ..." />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Message</label>
-                    <textarea className="w-full rounded-md border bg-background px-3 py-2 min-h-28" placeholder="Décrivez votre proposition" />
-                  </div>
-                  <div className="text-right">
-                    <button
-                      type="submit"
-                      className="px-6 py-2 rounded-md bg-gradient-to-r from-fuchsia-500 to-rose-400 text-white font-semibold shadow-lg shadow-rose-400/25"
-                    >
-                      Envoyer
-                    </button>
-                  </div>
-                </form>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </main>

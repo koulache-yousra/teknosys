@@ -5,7 +5,9 @@ import Header from "@/components/header"
 import AboutHero from "@/components/about-hero"
 import MissionVision from "@/components/mission-vision"
 import Values from "@/components/values"
+import MarketStats from "@/components/market-stats"
 import KeyFigures from "@/components/key-figures"
+import PartnersSection from "@/components/partners-section" 
 import Certifications from "@/components/certifications"
 import QualityCommitment from "@/components/quality-commitment"
 import Footer from "@/components/footer"
@@ -27,7 +29,9 @@ export default function AboutPage() {
       <AboutHero />
       <MissionVision />
       <Values />
+      <MarketStats />
       <KeyFigures />
+      <PartnersSection />
       <Certifications />
       <QualityCommitment />
       <Footer />

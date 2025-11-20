@@ -16,14 +16,15 @@ export default function MissionVision() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Notre Mission</h2>
             </div>
             <p className="text-foreground/70 text-base md:text-lg leading-relaxed">
-              Chez <span className="text-accent font-semibold">Teknosys</span>, nous nous engageons à fournir des
-              solutions technologiques innovantes et sur mesure. Notre mission est d'accompagner nos clients dans leur
-              transformation digitale en proposant des{" "}
-              <span className="text-accent font-semibold">technologies de pointe</span> et un service d'excellence.
+              Chez <span className="text-accent font-semibold">Teknosys</span>, nous nous engageons à offrir des solutions technologiques   
+              <span className="text-accent font-semibold"> innovantes fiables</span> et parfaitement <span className="text-accent font-semibold">adaptées </span> 
+              aux besoins de chaque organisation.
+{" "}             <br />
+
+                  Notre mission est d’accompagner nos clients dans leur <span className="text-accent font-semibold">transformation digitale </span> 
+                   en leur fournissant des infrastructures sécurisées, des outils performants et un <span className="text-accent font-semibold">service d’excellence</span>  à chaque étape du projet.
             </p>
-            <button className="px-8 py-3 border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300">
-              En savoir plus
-            </button>
+            
           </div>
 
           {/* Vision */}
@@ -48,13 +49,12 @@ export default function MissionVision() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Notre Vision</h2>
             </div>
             <p className="text-foreground/70 text-base md:text-lg leading-relaxed">
-              Devenir le <span className="font-semibold text-accent">partenaire technologique de référence</span> en
-              anticipant les besoins futurs du marché. Nous aspirons à créer un écosystème numérique où innovation,
-              sécurité et performance convergent pour façonner l'avenir de nos clients.
+              Devenir le <span className="text-accent font-semibold"> partenaire technologique de référence </span> en Afrique du Nord, en anticipant les évolutions du marché et les nouveaux défis numériques.
+              <br />
+             Nous aspirons à bâtir un écosystème où <span className="text-accent font-semibold"> innovation, sécurité, performance et agilité </span>   se renforcent mutuellement, afin d’aider nos clients à se 
+             développer, se protéger et se transformer durablement.
             </p>
-            <button className="px-8 py-3 border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300">
-              En savoir plus
-            </button>
+            
           </div>
         </div>
       </div>

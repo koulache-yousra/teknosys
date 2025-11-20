@@ -4,26 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light Mode - Ultra Minimal Luxury */
-  --background: oklch(0.99 0.001 0);
-  --foreground: oklch(0.1 0.01 0);
-  --card: oklch(0.98 0.002 0);
-  --card-foreground: oklch(0.1 0.01 0);
-  --popover: oklch(0.98 0.002 0);
-  --popover-foreground: oklch(0.1 0.01 0);
-  --primary: oklch(0.15 0.01 0);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.001 0);
-  --secondary-foreground: oklch(0.15 0.01 0);
-  --muted: oklch(0.92 0.001 0);
-  --muted-foreground: oklch(0.55 0.01 0);
-  --accent: oklch(0.65 0.35 200);
-  --accent-foreground: oklch(0.1 0.01 0);
-  --destructive: oklch(0.58 0.24 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.001 0);
-  --input: oklch(0.97 0.001 0);
-  --ring: oklch(0.65 0.35 200);
+  /* Light Mode - Luxury Design */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #0f172a; /* Bleu nuit pour les éléments principaux */
+  --primary-foreground: #ffffff;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #0f172a; /* Bleu nuit pour les accents */
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0; /* Bordure légère par défaut */
+  --input: #f1f5f9;
+  --ring: #0f172a; /* Couleur de focus en bleu nuit */
+  --border-primary: #0f172a; /* Nouvelle variable pour les bordures bleu nuit */
   --radius: 0.5rem;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -42,17 +43,17 @@
 
 .dark {
   /* Dark Mode - Deep Navy Ultra Luxury */
-  --background: oklch(0.05 0.01 240);
+  --background: #0f172a; /* Night blue color */
   --foreground: oklch(0.98 0.01 240);
-  --card: oklch(0.08 0.01 240);
+  --card: #1f2a5a; /* Slightly darker shade for cards */
   --card-foreground: oklch(0.98 0.01 240);
-  --popover: oklch(0.08 0.01 240);
+  --popover: #1f2a5a; /* Matching card color for consistency */
   --popover-foreground: oklch(0.98 0.01 240);
   --primary: oklch(0.98 0.01 240);
   --primary-foreground: oklch(0.05 0.01 240);
-  --secondary: oklch(0.12 0.02 240);
+  --secondary: #3a4a8a; /* Lighter shade for secondary elements */
   --secondary-foreground: oklch(0.98 0.01 240);
-  --muted: oklch(0.18 0.02 240);
+  --muted: #4a5a9a; /* Even lighter for muted elements */
   --muted-foreground: oklch(0.65 0.02 240);
   --accent: oklch(0.7 0.35 200);
   --accent-foreground: oklch(0.05 0.01 240);
@@ -116,9 +117,75 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.2s;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: currentColor;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  
+  /* Styles pour les bordures bleu nuit */
+  .border-primary {
+    @apply border border-primary/20 hover:border-primary/40 transition-colors duration-300;
+  }
+  
+  /* Correction du texte blanc dans la section contact */
+  .contact-section {
+    @apply text-foreground;
+  }
+  
+  .contact-section h2,
+  .contact-section h3,
+  .contact-section p {
+    @apply text-foreground;
   }
   body {
     @apply bg-background text-foreground;
@@ -131,9 +198,19 @@
 }
 
 @layer components {
-  /* Updated premium styles for ultra-luxury aesthetic */
+  /* Styles luxe avec bordures bleu nuit */
   .glassmorphism {
-    @apply bg-background/40 backdrop-blur-2xl border border-white/5 dark:border-white/8;
+    @apply bg-background/40 backdrop-blur-2xl border border-primary/10 dark:border-white/8;
+  }
+  
+  /* Carte avec bordure bleu nuit */
+  .luxury-card {
+    @apply bg-card border border-primary/10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-6;
+  }
+  
+  /* Bouton de luxe */
+  .btn-luxury {
+    @apply bg-primary text-white px-6 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors border border-primary/20 hover:border-primary/40;
   }
 
   .gradient-text {
@@ -155,4 +232,46 @@
   .luxury-line {
     @apply h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent;
   }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 0.3s;
+}
+
+/* Style pour la section marché IT en dark mode */
+.dark .market-stats {
+  background: linear-gradient(135deg, #1e1b4b 0%, #1e1e2e 100%);
+}
+
+.market-stats {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
 }

@@ -1,48 +1,74 @@
 "use client"
 
 import { partners } from "@/data/partners"
-
-const stats = [
-  { number: "+10", label: "ANS DE SERVICE" },
-  { number: "+21", label: "PARTENAIRES TECHNOLOGIQUE" },
-  { number: "+200", label: "CLIENTS SATISFAITS" },
-  { number: "+500", label: "APPELS D'OFFRES" },
-]
+import { useEffect, useRef } from "react"
 
 export default function Partners() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // Dupliquer les partenaires pour une animation fluide
+  const duplicatedPartners = [...partners, ...partners]
+
   return (
-    <section id="partners" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-8">
-            Nos <span className="text-accent">Partenaires</span>
+    <section id="partners" className="py-16 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Nos <span className="text-[#00B5FF]">Partenaires</span>
           </h2>
+          <p className="mt-4 text-lg text-foreground/70">
+            Teknosys s'appuie sur un réseau de partenaires technologiques de premier
+             plan pour offrir les solutions les plus performantes du marché.
+             <br />
+              Notre statut de partenaire officiel nous permet d'accéder aux dernières
+               innovations et de bénéficier d'un support technique privilégié.
+
+          </p>
         </div>
 
-        <div className="mb-20">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
-            {partners.map((partner) => (
+        <div className="relative">
+          <div 
+            ref={containerRef}
+            className="flex items-center py-8 animate-scroll"
+          >
+            {duplicatedPartners.map((partner, index) => (
               <div
-                key={partner.name}
-                className="group glassmorphism rounded-2xl p-6 flex items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.2)]"
+                key={`${partner.name}-${index}`}
+                className="flex-shrink-0 mx-4 group"
               >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-14 w-auto opacity-80 group-hover:opacity-100 transition-opacity"
-                />
+                <div className="w-32 h-32 rounded-full bg-white dark:bg-slate-800 shadow-lg p-4 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-accent/50">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-16 w-auto max-w-full object-contain"
+                  />
+                </div>
+                <p className="mt-3 text-sm font-medium text-center text-foreground/80">
+                  {partner.name}
+                </p>
               </div>
             ))}
           </div>
-        </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center animate-in fade-in zoom-in-50">
-              <div className="text-5xl md:text-6xl font-black text-accent mb-4">{stat.number}</div>
-              <div className="text-foreground/70 font-semibold text-sm tracking-widest">{stat.label}</div>
-            </div>
-          ))}
+          <style jsx global>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(calc(-100% / 2)); }
+            }
+            .animate-scroll {
+              display: flex;
+              width: calc(200%);
+              animation: scroll 40s linear infinite;
+            }
+            .animate-scroll:hover {
+              animation-play-state: paused;
+            }
+            @media (max-width: 768px) {
+              .animate-scroll {
+                animation-duration: 30s;
+              }
+            }
+          `}</style>
         </div>
       </div>
     </section>

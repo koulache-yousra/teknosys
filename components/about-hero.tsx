@@ -19,11 +19,11 @@ export default function AboutHero() {
 
           <div className="space-y-4 text-foreground/80 max-w-3xl">
             <p className="text-base md:text-lg leading-relaxed">
-              Nous aidons les entreprises à{" "}
+              Depuis plus d’une décennie nous aidons les entreprises à{" "}
               <span className="font-semibold text-accent">
                 protéger, moderniser et optimiser leur infrastructure IT
               </span>
-              , tout en améliorant leur communication.
+              , tout en améliorant leur communication interne et externe.
             </p>
             <p className="text-base md:text-lg leading-relaxed">
               Notre expertise couvre{" "}

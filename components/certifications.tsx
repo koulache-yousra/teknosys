@@ -1,10 +1,8 @@
 "use client"
 
-import { Handshake, Award, CheckCircle } from "lucide-react"
-import { partners as partnerData } from "@/data/partners"
+import { Award, CheckCircle } from "lucide-react"
 
 export default function Certifications() {
-  const partners = partnerData.slice(0, 10)
   const certifications = ["Expert Certifié", "Intégration", "Maintenance", "Formation Continue"]
   const expertise = [
     {
@@ -21,44 +19,13 @@ export default function Certifications() {
     <section id="certifications" className="w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-accent/5 dark:from-background dark:to-accent/3">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-4">
-          Certifications & Partenariats
+          Nos Certifications & Qualité
         </h2>
         <p className="text-center text-foreground/60 mb-16 max-w-2xl mx-auto">
           L'excellence technologique au service de nos clients
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Strategic Partnerships */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
-              <span className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                <Handshake className="w-5 h-5 text-accent" />
-              </span>
-              Partenariats Stratégiques
-            </h3>
-            <p className="text-foreground/70 leading-relaxed">
-              Teknosys s'appuie sur un réseau de partenaires technologiques de premier plan pour offrir les solutions
-              les plus performantes du marché. Notre statut de partenaire officiel nous permet d'accéder aux dernières
-              innovations et de bénéficier d'un support technique privilégié.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {partners.map((partner, idx) => (
-                <div
-                  key={idx}
-                  className="glassmorphism backdrop-blur-xl border border-white/10 dark:border-white/8 rounded-xl p-6 flex items-center justify-center hover:border-accent/50 transition-all animate-in fade-in slide-in-from-bottom-2"
-                  title={partner.name}
-                >
-                  <img
-                    src={partner.src}
-                    alt={partner.name}
-                    className="max-h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Professional Certifications */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
@@ -68,9 +35,11 @@ export default function Certifications() {
               Certifications Professionnelles
             </h3>
             <p className="text-foreground/70 leading-relaxed">
-              Nos équipes maintiennent un niveau d'expertise élevé grâce à des certifications régulièrement mises à
-              jour. Cette démarche garantit la qualité de nos prestations et notre capacité à intégrer les technologies
-              les plus exigeantes.
+              Nos équipes maintiennent un niveau d'expertise élevé grâce à des certifications régulièrement mises à jour.
+              <br />
+               Cette démarche garantit la qualité de nos prestations et notre capacité à intégrer les technologies 
+               les plus exigeantes.
+
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
@@ -103,18 +72,18 @@ export default function Certifications() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="glassmorphism backdrop-blur-xl border border-white/10 dark:border-white/8 rounded-2xl p-8 text-center hover:border-accent/50 transition-all space-y-3">
-            <div className="text-5xl font-bold text-accent">15+</div>
-            <p className="text-foreground/70">Partenaires Technologiques</p>
-          </div>
-          <div className="glassmorphism backdrop-blur-xl border border-white/10 dark:border-white/8 rounded-2xl p-8 text-center hover:border-accent/50 transition-all space-y-3">
-            <div className="text-5xl font-bold text-accent">50+</div>
+        <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="glassmorphism backdrop-blur-xl border border-accent/20 p-6 rounded-2xl text-center">
+            <div className="text-4xl font-bold text-accent mb-2">50+</div>
             <p className="text-foreground/70">Certifications Actives</p>
           </div>
-          <div className="glassmorphism backdrop-blur-xl border border-white/10 dark:border-white/8 rounded-2xl p-8 text-center hover:border-accent/50 transition-all space-y-3">
-            <div className="text-5xl font-bold text-accent">100%</div>
+          <div className="glassmorphism backdrop-blur-xl border border-accent/20 p-6 rounded-2xl text-center">
+            <div className="text-4xl font-bold text-accent mb-2">100%</div>
             <p className="text-foreground/70">Équipes Certifiées</p>
+          </div>
+          <div className="glassmorphism backdrop-blur-xl border border-accent/20 p-6 rounded-2xl text-center">
+            <div className="text-4xl font-bold text-accent mb-2">10+</div>
+            <p className="text-foreground/70">Années d'Expérience</p>
           </div>
         </div>
       </div>

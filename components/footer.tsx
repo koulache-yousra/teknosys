@@ -30,31 +30,25 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 text-sm">Quick link</h4>
             <ul className="space-y-3">
-              {["Home", "About", "Services", "Références"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-white/60 hover:text-accent transition-colors duration-300 text-sm">
-                    {item}
+              {[
+                { name: "Home", path: "/" },
+                { name: "About", path: "/about" },
+                { name: "Services", path: "/services" },
+                { name: "Références", path: "/references" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <a 
+                    href={item.path} 
+                    className="text-white/60 hover:text-accent transition-colors duration-300 text-sm"
+                  >
+                    {item.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Support */}
-          <div>
-            <h4 className="font-bold text-white mb-6 text-sm">Support</h4>
-            <ul className="space-y-3">
-              {["Terms & Conditions", "Privacy Policy", "Support", "Contact"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-white/60 hover:text-accent transition-colors duration-300 text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
+{/* Contact */}
           <div>
             <h4 className="font-bold text-white mb-6 text-sm">Contact</h4>
             <div className="space-y-4 text-sm">

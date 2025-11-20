@@ -7,11 +7,13 @@ export default function KeyFigures() {
         <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">Chiffres clés</h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="bg-gradient-to-br from-accent/30 to-accent/10 rounded-3xl aspect-square flex items-center justify-center overflow-hidden border border-accent/20">
-            <div className="text-center">
-              <p className="text-lg text-foreground/60">Équipe TeknoSys</p>
-            </div>
+          <div className="rounded-3xl overflow-hidden border border-accent/30 shadow-2xl shadow-accent/20">
+            <img
+              src="/about/cleschiffres.jpg"
+              alt="Chiffres clés Teknosys"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
 
           {/* Stats Grid */}

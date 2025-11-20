@@ -1,6 +1,7 @@
 "use client"
 
 import { FileText, CheckCircle, TrendingUp } from "lucide-react"
+import { motion } from 'framer-motion';
 
 const services = [
   {
@@ -37,25 +38,77 @@ const services = [
 ]
 
 export default function Expertise() {
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemTop = (delay = 0) => ({
+    hidden: { opacity: 0, y: -50 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 20,
+        delay,
+      },
+    },
+  });
+
+  const itemBottom = (delay = 0) => ({
+    hidden: { opacity: 0, y: 50 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 20,
+        delay,
+      },
+    },
+  });
+
   return (
-    <section id="services" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section id="services" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground">
-            Nos pôles <span className="text-accent">d'expertise</span>
+            Nos pôles <span className="text-[#00B5FF]">d'expertise</span>   
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={container}
+        >
           {services.map((service, index) => {
-            const Icon = service.icon
+            const Icon = service.icon;
+            // Appliquer des animations différentes selon l'index
+            const animationVariant = index % 2 === 0 
+              ? itemTop(index * 0.2) 
+              : itemBottom(index * 0.2);
+
             return (
-              <div
+              <motion.div
                 key={index}
+                variants={animationVariant}
                 className={`group rounded-2xl p-8 md:p-10 border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(217,70,239,0.25)] ${
                   service.featured
                     ? "bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black border-accent/50 shadow-2xl"
-                    : "bg-white/5 border-white/10 hover:border-accent/50"
+                    : "bg-white shadow-xl border-slate-200/80 hover:border-accent/40 dark:bg-white/5 dark:border-white/10 dark:shadow-none"
                 }`}
               >
                 <div className="space-y-6">
@@ -84,10 +137,10 @@ export default function Expertise() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

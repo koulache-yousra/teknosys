@@ -1,6 +1,7 @@
 "use client"
 
 import { Zap, Users, MapPin, Award } from "lucide-react"
+import { motion } from 'framer-motion';
 
 const strengths = [
   {
@@ -25,33 +26,74 @@ const strengths = [
   },
 ]
 
+// Animation variants
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const item = (delay = 0) => ({
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 200,
+      damping: 25,
+      mass: 0.5,
+      delay: delay * 0.2,
+      duration: 0.5,
+    },
+  },
+});
+
 export default function Strengths() {
   return (
-    <section id="atouts" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section id="atouts" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground">
-            Nos <span className="text-accent">atouts</span>
+            Nos <span className="text-[#00B5FF]">Atouts</span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={container}
+        >
           {strengths.map((strength, index) => {
-            const Icon = strength.icon
+            const Icon = strength.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300"
+                variants={item(index)}
+                className="rounded-2xl p-8 border bg-white shadow-lg border-slate-200/70 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 dark:bg-white/5 dark:border-white/10"
               >
                 <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
                   <Icon className="w-7 h-7 text-accent" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">{strength.title}</h3>
                 <p className="text-foreground/70 text-sm leading-relaxed font-light">{strength.description}</p>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

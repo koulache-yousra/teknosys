@@ -6,6 +6,7 @@ import Hero from "@/components/hero"
 import About from "@/components/about"
 import Expertise from "@/components/expertise"
 import Strengths from "@/components/strengths"
+
 import Partners from "@/components/partners"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"

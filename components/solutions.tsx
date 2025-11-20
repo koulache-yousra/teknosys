@@ -11,7 +11,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section id="services" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative light-section rounded-[32px]">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
@@ -31,7 +31,7 @@ export default function Solutions() {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className="group relative glassmorphism rounded-xl p-8 border border-white/5 transition-all duration-300 hover:border-accent/50 cursor-pointer"
+              className="group relative rounded-xl p-8 border bg-white/95 shadow-lg border-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer dark:bg-white/5 dark:border-white/10"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
 

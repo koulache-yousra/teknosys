@@ -13,7 +13,7 @@ type NavItem = {
   sections?: { label: string; href: string }[]
 }
 
-const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string, setIsMenuOpen: (value: boolean) => void) => {
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string, setIsMenuOpen: (value: boolean) => void) => {
   e.preventDefault();
   
   // Fermer le menu mobile si ouvert
@@ -21,24 +21,35 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: stri
     setIsMenuOpen(false);
   }
 
-  // Attendre le prochain tick pour s'assurer que le DOM est mis à jour
-  setTimeout(() => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 120; // Ajustez cette valeur selon la hauteur de votre header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  // Extraire le chemin et le hash de l'URL
+  const [path, hash] = href.split('#');
+  const currentPath = window.location.pathname;
+  
+  // Si on est déjà sur la bonne page, on fait simplement défiler vers la section
+  if (path === '' || path === currentPath) {
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        const headerOffset = 120;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      // Mettre à jour l'URL sans recharger la page
-      window.history.pushState({}, '', `#${sectionId}`);
-
-      // Utiliser smooth scroll
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.history.pushState({}, '', `#${hash}`);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
-  }, 0);
+  } else {
+    // Si on doit changer de page, on navigue d'abord vers la page
+    if (hash) {
+      // On stocke la section à laquelle on veut accéder
+      sessionStorage.setItem('scrollToSection', hash);
+    }
+    // Navigation vers la nouvelle page
+    window.location.href = href;
+  }
 };
 
 export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDark: (value: boolean) => void }) {
@@ -47,8 +58,30 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
   const [activeSection, setActiveSection] = useState<string>('home')
   const pathname = usePathname()
 
-  // Observer les sections pour mettre à jour la section active
+  // Gestion du défilement vers une section après le chargement de la page
   useEffect(() => {
+    // Vérifier s'il y a une section à laquelle faire défiler après le chargement
+    const scrollToHash = () => {
+      const hash = window.location.hash.substring(1) || sessionStorage.getItem('scrollToSection');
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          const headerOffset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Nettoyer le stockage après utilisation
+          sessionStorage.removeItem('scrollToSection');
+        }
+      }
+    };
+
+    // Observer les sections pour mettre à jour la section active
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -66,10 +99,16 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
       observer.observe(section);
     });
 
+    // Délai pour s'assurer que le DOM est complètement chargé
+    const timer = setTimeout(() => {
+      scrollToHash();
+    }, 100);
+
     return () => {
       sections.forEach((section) => {
         observer.unobserve(section);
       });
+      clearTimeout(timer);
     };
   }, [pathname]);
 
@@ -211,10 +250,7 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
                             key={s.href}
                             href={s.href}
                             onClick={(e) => {
-                              const sectionId = s.href.split('#')[1];
-                              if (sectionId) {
-                                scrollToSection(e, sectionId, setIsMenuOpen);
-                              }
+                              scrollToSection(e, s.href, setIsMenuOpen);
                               setActiveDropdown(null);
                             }}
                             className="px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-accent hover:bg-accent/10 transition-colors"
@@ -259,7 +295,7 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
                   onClick={(e) => {
                     if (item.href.startsWith('#')) {
                       const sectionId = item.href.substring(1);
-                      scrollToSection(e, sectionId, setIsMenuOpen);
+                      scrollToSection(e, item.href, setIsMenuOpen);
                     } else {
                       setIsMenuOpen(false);
                     }
@@ -277,8 +313,7 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
                         key={section.href}
                         href={section.href}
                         onClick={(e) => {
-                          const sectionId = section.href.substring(1);
-                          scrollToSection(e, sectionId, setIsMenuOpen);
+                          scrollToSection(e, section.href, setIsMenuOpen);
                         }}
                         className={`block px-4 py-1.5 text-sm ${
                           activeSection === section.href.substring(1)
@@ -308,10 +343,7 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
                   href={section.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    const sectionId = section.href.split('#')[1];
-                    if (sectionId) {
-                      scrollToSection(e, sectionId, setIsMenuOpen);
-                    }
+                    scrollToSection(e, section.href, setIsMenuOpen);
                   }}
                   className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-colors ${
                     activeSection === section.href.split('#')[1]

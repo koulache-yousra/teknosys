@@ -55,7 +55,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 space-y-16">
+      <section id="partners" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 space-y-16">
         {categories.map(([category, items]) => (
           <div key={category} className="max-w-7xl mx-auto space-y-8">
             <div className="flex items-center justify-between flex-wrap gap-3">

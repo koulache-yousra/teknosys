@@ -57,18 +57,18 @@ export default function Footer() {
                 className="flex items-start gap-3 text-white/60 hover:text-accent transition-colors duration-300"
               >
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>+88 123 456 987</span>
+                <span>‪+213 20301061</span>
               </a>
               <a
                 href="mailto:support@kitpapa.com"
                 className="flex items-start gap-3 text-white/60 hover:text-accent transition-colors duration-300"
               >
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>support@kitpapa.com</span>
+                <span>sales@teknosysgroup.com </span>
               </a>
               <div className="flex items-start gap-3 text-white/60">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Jl. Sunset Road No. 99x, Kuta - Bali</span>
+                <span>Algerie - Alger</span>
               </div>
             </div>
           </div>

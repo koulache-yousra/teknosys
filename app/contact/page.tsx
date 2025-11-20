@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-foreground">Email</p>
                   <a href="mailto:contact@teknosys.com" className="hover:text-accent">
-                    contact@teknosys.com
+                    csales@teknosysgroup.com 
                   </a>
                 </div>
               </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-foreground">Téléphone</p>
                   <a href="tel:+21300000000" className="hover:text-accent">
-                    +213 00 00 00 00
+                     ‪+213 20301061‬ 
                   </a>
                 </div>
               </div>
@@ -53,7 +53,7 @@ export default function ContactPage() {
                 <MapPin className="w-6 h-6 text-accent mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Adresse</p>
-                  <p>Centre d'affaires, Alger - Algérie</p>
+                  <p>Algerie - Alger</p>
                 </div>
               </div>
             </div>

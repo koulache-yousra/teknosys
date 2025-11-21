@@ -1,0 +1,11 @@
+CONTACT FORM :
+template ID : template_015m5wl
+service id : service_bxjnj0o
+public key : mUAX2qS54Gkk0MOoJ
+
+
+DEVIS SERVICE FORM : 
+template ID : template_2aebr1q
+
+DEVENIR PARTENAIRE FORM : 
+template ID : 

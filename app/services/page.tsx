@@ -3,15 +3,51 @@
 import { useEffect, useState } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { CheckCircle2, Shield, Cloud, Network, Users } from "lucide-react"
+import { CheckCircle2, Shield, Cloud, Network, Users, Send } from "lucide-react"
+import emailjs from '@emailjs/browser'
 
 export default function ServicesPage() {
   const [isDark, setIsDark] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [messageSent, setMessageSent] = useState(false)
 
   useEffect(() => {
     if (isDark) document.documentElement.classList.add("dark")
     else document.documentElement.classList.remove("dark")
+    // Initialiser EmailJS avec votre clé publique
+    emailjs.init("mUAX2qS54Gkk0MOoJ") //  Public Key
   }, [isDark])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    const form = e.currentTarget
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_bxjnj0o', // votre Service ID
+        'template_2aebr1q', //  template id 
+        form,
+        'mUAX2qS54Gkk0MOoJ' //Public Key
+      )
+
+      if (result.text === 'OK') {
+        setMessageSent(true)
+        form.reset()
+        
+        // Reset du message de succès après 5 secondes
+        setTimeout(() => {
+          setMessageSent(false)
+        }, 5000)
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error)
+      alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
@@ -38,7 +74,7 @@ export default function ServicesPage() {
             De la conception à l'exécution, jusqu'au conseil stratégique, nous vous accompagnons à chaque étape de vos projets IT.
           </p>
           <p className="text-foreground/70 text-base md:text-lg">
-            Chez Teknosys Group, nos services sont structurés en trois pôles complémentaires. Cette approche nous permet d’accompagner nos clients à chaque étape de leurs projets IT : de la conception à l’exécution, jusqu’au conseil stratégique.
+            Chez Teknosys Group, nos services sont structurés en trois pôles complémentaires. Cette approche nous permet d'accompagner nos clients à chaque étape de leurs projets IT : de la conception à l'exécution, jusqu'au conseil stratégique.
           </p>
         </div>
       </section>
@@ -65,7 +101,7 @@ export default function ServicesPage() {
             </ul>
             <br />
             <button
-                type="submit"
+                type="button"
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
               >
                Lire Plus
@@ -101,7 +137,7 @@ export default function ServicesPage() {
             </ul>
             <br />
             <button
-                type="submit"
+                type="button"
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
               >
                Lire Plus
@@ -136,7 +172,7 @@ export default function ServicesPage() {
             </ul>
             <br />
             <button
-                type="submit"
+                type="button"
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
               >
                Lire Plus
@@ -173,7 +209,7 @@ export default function ServicesPage() {
             </ul>
             <br />
             <button
-                type="submit"
+                type="button"
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
               >
                Lire Plus
@@ -194,12 +230,19 @@ export default function ServicesPage() {
               Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé.
             </p>
           </div>
+
+          {messageSent && (
+            <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+              Demande de devis envoyée avec succès ! Nous vous contacterons dans les plus brefs délais.
+            </div>
+          )}
           
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom complet <span className="text-red-500">*</span></label>
                 <input
+                  name="from_name"
                   type="text"
                   className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
                   placeholder="Votre nom complet"
@@ -209,6 +252,7 @@ export default function ServicesPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Société</label>
                 <input
+                  name="company"
                   type="text"
                   className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
                   placeholder="Nom de votre entreprise"
@@ -220,6 +264,7 @@ export default function ServicesPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email <span className="text-red-500">*</span></label>
                 <input
+                  name="from_email"
                   type="email"
                   className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
                   placeholder="votre@email.com"
@@ -229,6 +274,7 @@ export default function ServicesPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Téléphone</label>
                 <input
+                  name="phone"
                   type="tel"
                   className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
                   placeholder="+213 XX XX XX XX XX"
@@ -239,6 +285,7 @@ export default function ServicesPage() {
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Service concerné <span className="text-red-500">*</span></label>
               <select
+                name="service"
                 className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none"
                 required
               >
@@ -253,6 +300,7 @@ export default function ServicesPage() {
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Détails de votre demande <span className="text-red-500">*</span></label>
               <textarea
+                name="message"
                 rows={5}
                 className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 transition-all duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 outline-none min-h-[120px] resize-none"
                 placeholder="Décrivez votre projet ou votre besoin en détail..."
@@ -276,13 +324,22 @@ export default function ServicesPage() {
               </div>
             </div>
             
-            
-              <button
+            <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 font-semibold text-white shadow-lg shadow-rose-400/30 transition-all hover:-translate-y-0.5"
+              disabled={isLoading}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 font-semibold text-white shadow-lg shadow-blue-400/30 transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Envoyer la Demande
-              
+              {isLoading ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  Envoi en cours...
+                </>
+              ) : (
+                <>
+                  Envoyer la Demande
+                  <Send className="w-4 h-4" />
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -292,5 +349,3 @@ export default function ServicesPage() {
     </main>
   )
 }
-
-

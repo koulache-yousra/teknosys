@@ -1,12 +1,59 @@
+
 "use client"
+
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemLeft = {
+  hidden: { opacity: 0, x: -50 },
+  show: { 
+    opacity: 1, 
+    x: 0,
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut"
+    } 
+  },
+};
+
+const itemRight = {
+  hidden: { opacity: 0, x: 50 },
+  show: { 
+    opacity: 1, 
+    x: 0,
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut"
+    } 
+  },
+};
 
 export default function MissionVision() {
   return (
     <section id="mission" className="w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={container}
+        >
           {/* Mission */}
-          <div className="glassmorphism backdrop-blur-2xl border border-white/10 dark:border-white/8 rounded-2xl p-12 md:p-16 space-y-6">
+          <motion.div 
+            className="glassmorphism backdrop-blur-2xl border border-white/10 dark:border-white/8 rounded-2xl p-12 md:p-16 space-y-6"
+            variants={itemLeft}
+          >
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-7 h-7 text-accent-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -25,13 +72,16 @@ export default function MissionVision() {
                    en leur fournissant des infrastructures sécurisées, des outils performants et un <span className="text-accent font-semibold">service d’excellence</span>  à chaque étape du projet.
             </p>
             
-          </div>
+          </motion.div>
 
           {/* Vision */}
-          <div className="bg-gradient-to-br from-accent/20 to-accent/5 backdrop-blur-2xl border border-accent/20 rounded-2xl p-12 md:p-16 space-y-6">
+          <motion.div 
+            className="  bg-gradient-to-br from-accent/20 to-accent/5 glassmorphism backdrop-blur-2xl border border-white/10 dark:border-white/8 rounded-2xl p-12 md:p-16 space-y-6"
+            variants={itemRight}>
+              
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-accent/30 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-7 h-7 text-accent-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -55,8 +105,8 @@ export default function MissionVision() {
              développer, se protéger et se transformer durablement.
             </p>
             
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

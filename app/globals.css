@@ -43,7 +43,7 @@
 
 .dark {
   /* Dark Mode - Deep Navy Ultra Luxury */
-  --background: #0f172a; /* Night blue color */
+  --background: #283668; /* Night blue color */
   --foreground: oklch(0.98 0.01 240);
   --card: #1f2a5a; /* Slightly darker shade for cards */
   --card-foreground: oklch(0.98 0.01 240);

@@ -109,5 +109,3 @@ Indiquez ici la licence du projet (par ex. MIT). Si non spécifiée, ajoutez-en 
 - Icônes via `lucide-react`.
 
 ---
-
-Si vous avez besoin d’un README en anglais ou d’une section supplémentaire (ex: variables d’environnement, CI/CD), dites-le moi et je l’ajoute.

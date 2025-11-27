@@ -8,7 +8,7 @@ export type Partner = {
 
 export const partners: Partner[] = [
   {
-    name: "Unigest",
+    name: "Uniguest",
     logo: "/partners/unigest.png",
     description: "Solutions d'affichage et de réservation d'espaces collaboratifs.",
     url: "https://uniguest.com/fr/signalisation-de-la-chambre-reserva/",

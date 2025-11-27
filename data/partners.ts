@@ -43,7 +43,7 @@ export const partners: Partner[] = [
     category: "Communication",
   },
   {
-    name: "yealink",
+    name: "Yealink",
     logo: "/partners/yealink.png",
     description: "Plateformes de communication unifiée et centres de contact.",
     url: "https://www.yealink.com/en",

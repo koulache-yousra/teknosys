@@ -6,8 +6,11 @@ import { useEffect, useRef } from "react"
 export default function Partners() {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Dupliquer les partenaires pour une animation fluide
-  const duplicatedPartners = [...partners, ...partners]
+  // Créer une liste de partenaires uniques pour l'affichage
+  const uniquePartners = Array.from(new Map(partners.map(partner => [partner.name, partner])).values())
+
+  // Dupliquer les partenaires uniques pour une animation fluide
+  const duplicatedPartners = [...uniquePartners, ...uniquePartners]
 
   return (
     <section id="partners" className="py-16 bg-slate-50 dark:bg-slate-900 overflow-hidden">

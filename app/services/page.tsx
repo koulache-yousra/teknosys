@@ -177,8 +177,8 @@ export default function ServicesPage() {
             <img src="/services/videoconferencing.png" alt="Distribution" className="w-full h-full object-cover" />
           </div>
           <div className="order-1 md:order-2">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Videoconferencing & Collaboration</span>
-            <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Videoconferencing & Collaboration
+            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Visioconférence & Collaboration</span>
+            <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Visioconférence & Collaboration
 </h3>
             
             <ul className="mt-6 space-y-3">

@@ -8,10 +8,10 @@ export type Partner = {
 
 export const partners: Partner[] = [
   {
-    name: "Reserva",
-    logo: "/reserva-logo.jpg",
+    name: "Unigest",
+    logo: "/partners/unigest.png",
     description: "Solutions d'affichage et de réservation d'espaces collaboratifs.",
-    url: "https://reserva.sedao.com/",
+    url: "https://uniguest.com/fr/signalisation-de-la-chambre-reserva/",
     category: "Collaboration",
   },
   {

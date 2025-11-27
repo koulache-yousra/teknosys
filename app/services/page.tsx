@@ -100,12 +100,7 @@ export default function ServicesPage() {
               ))}
             </ul>
             <br />
-            <button
-                type="button"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
-              >
-               Lire Plus
-              </button>
+            
           </div>
           <div className="group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
             <img src="/services/service-integration.jpg" alt="Infrastructure" className="w-full h-full object-cover" />
@@ -128,6 +123,7 @@ export default function ServicesPage() {
                 "Fourniture d'équipements IT, sécurité et vidéosurveillance",
                 "Stock local ou livraison rapide via nos partenaires",
                 "Marques : Hikvision, Fortinet, Dahua, Aruba, Zoom",
+                "Équipements de visioconférence et audio pro : Logitech, Poly, Jabra, Yealink, Casques, micros, speakerphones pour entreprises",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Network className="w-5 h-5 text-accent mt-0.5" />
@@ -135,13 +131,7 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
-            <br />
-            <button
-                type="button"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
-              >
-               Lire Plus
-              </button>
+            
           </div>
         </div>
       </section>
@@ -170,19 +160,46 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
-            <br />
-            <button
-                type="button"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
-              >
-               Lire Plus
-              </button>
+            
+            
           </div>
           <div className="group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
             <img src="/services/consultancy.jpg" alt="Consulting" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
+
+        
+        {/* Pôle 4 */}
+      <section id="pole4" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-accent/5 dark:bg-accent/10/10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div className="order-2 md:order-1 group glassmorphism rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_45px_rgba(217,70,239,0.25)]">
+            <img src="/services/videoconferencing.png" alt="Distribution" className="w-full h-full object-cover" />
+          </div>
+          <div className="order-1 md:order-2">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-border text-sm">Teknosys Videoconferencing & Collaboration</span>
+            <h3 className="mt-4 text-3xl md:text-4xl font-bold">Teknosys Videoconferencing & Collaboration
+</h3>
+            
+            <ul className="mt-6 space-y-3">
+              {[
+                "Solutions de visioconférence professionnelles",
+                " Zoom Rooms & Microsoft Teams Rooms",
+                "Intégration complète audio/vidéo",
+                "Casques, micros, speakerphones",
+                "Écrans interactifs & salles de réunion intelligentes",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <Network className="w-5 h-5 text-accent mt-0.5" />
+                  <span className="text-foreground/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+            
+          </div>
+        </div>
+      </section>
+
 
       {/* Sécurité & Conformité */}
       <section id="securite" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -191,7 +208,7 @@ export default function ServicesPage() {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-sm">
               <Shield className="w-4 h-4" /> Cybersécurité
             </span>
-            <h3 className="mt-4 text-3xl md:text-4xl font-bold">Sécurité & Conformité au cœur de nos solutions</h3>
+            <h3 className="mt-4 text-3xl md:text-4xl font-bold">Sécurité & Conformité </h3>
             <p className="mt-3 text-foreground/70">
               Avec l'augmentation des budgets cybersécurité, nous plaçons la sécurité au centre de toutes nos interventions.
             </p>
@@ -207,13 +224,7 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
-            <br />
-            <button
-                type="button"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300"
-              >
-               Lire Plus
-              </button>
+            
           </div>
           <div className="rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]">
             <img src="/services/cybersecurity.jpg" alt="Security" className="w-full h-full object-cover" />

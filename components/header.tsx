@@ -164,6 +164,7 @@ export default function Header({ isDark, setIsDark }: { isDark: boolean; setIsDa
       { label: "Services & Integration", href: "/services#pole1" },
       { label: "Distribution", href: "/services#pole2" },
       { label: "Consultancy", href: "/services#pole3" },
+      { label: "visioconférence&Collaboration", href: "/services#pole4" },
       { label: "CyberSécurité", href: "/services#securite" },
     ],
     "/partners": [

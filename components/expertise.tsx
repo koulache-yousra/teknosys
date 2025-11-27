@@ -1,6 +1,6 @@
 "use client"
 
-import { FileText, CheckCircle, TrendingUp } from "lucide-react"
+import { FileText, CheckCircle, TrendingUp, Video } from "lucide-react"
 import { motion } from 'framer-motion';
 
 const services = [
@@ -33,6 +33,17 @@ const services = [
       "Accompagnement à la transformation digitale",
       "Stratégie cloud & architecture Zero Trust",
       "Solutions SAP, Mobile Payment, conformité technique",
+    ],
+  },
+  {
+    icon: Video,
+    title: "Teknosys Videoconferencing & Collaboration",
+    highlights: [
+      "Solutions de visioconférence professionnelles",
+      "Zoom Rooms & Microsoft Teams Rooms",
+      "Intégration complète audio/vidéo",
+      "Casques, micros, speakerphones",
+      "Écrans interactifs & salles de réunion intelligentes",
     ],
   },
 ]

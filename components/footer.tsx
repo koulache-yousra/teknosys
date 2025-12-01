@@ -72,7 +72,11 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-white/60">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Algerie - Alger</span>
+                <span>Alger - Algerie</span>
+              </div>
+              <div className="flex items-start gap-3 text-white/60">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                <span>06 Rue Charef Lemtaiche El Eulma Setif - Algerie</span>
               </div>
             </div>
           </div>
